@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "jsx": "preserve",
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": ["es2021", "esnext.asynciterable"],
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules"]
+}
