@@ -3,8 +3,7 @@ import { graphqlHTTP } from 'express-graphql';
 import { WeatherAppDB } from './utils/database';
 import schema from './schema';
 import { WeatherPredictionsRefresher } from './utils/weatherPredictionRefresher';
-import { ContextHelper } from './utils/contextHelper';
-import { PredictionsHelper } from './utils/predictionsHelper';
+import { ContextBuilder } from './utils/contextBuilder';
 import { PORT } from './config/constants';
 import { IContext } from './models/context';
 
@@ -12,14 +11,8 @@ async function buildServer() {
   const db = new WeatherAppDB();
   await db.connect();
 
-  const contextHelper = new ContextHelper(db);
-  const predictionsHelper = new PredictionsHelper(db);
-
-  const context: IContext = {
-    trackingData: await contextHelper.getTrackingsMap(),
-    pickupLocationData: await contextHelper.getPickupLocationsDataMap(),
-    predictionsHelper,
-  };
+  const contextBuilder = new ContextBuilder(db);
+  const context: IContext = await contextBuilder.getContext();
 
   new WeatherPredictionsRefresher(context.pickupLocationData, db).start();
 

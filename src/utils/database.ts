@@ -1,5 +1,5 @@
 import { MONGO_CLUSTER_URL, MONGO_USERNAME, MONGO_PASSWORD, MONGO_AUTH_MECHANISM, DB_NAME } from '../config/constants';
-import { BulkWriteOptions, Document, Filter, MongoClient } from 'mongodb';
+import { BulkWriteOptions, Document, MongoClient } from 'mongodb';
 
 /**
  * Connects to Mongodb, provides methods to interact with db
@@ -20,7 +20,7 @@ export class WeatherAppDB {
     }
   }
 
-  get<R extends Document>(collectionName: string, query: any) {
+  get<R extends Document>(collectionName: string, query: {}) {
     const db = this.client.db(DB_NAME);
     const collection = db.collection(collectionName);
     return collection.find<R>(query);
