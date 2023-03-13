@@ -64,8 +64,7 @@ Open the returned graphQL playground link in your browser and start doing querie
       latitude
       longitude
     }
-
-}
+  }
 
 #### Tracking Information Response
 
@@ -141,14 +140,13 @@ Open the returned graphQL playground link in your browser and start doing querie
 
 ## Running Tests:
 
-`npm run test -- TEST_TO_RUN.test.ts`
-
 > To run single test
 
-`npm run test`
+`npm run test -- <TEST_TO_RUN>.test.ts`
 
 > To run all tests
 
-`npm run coverage`
+`npm run test`
 
 > To see tests coverage report
+`npm run coverage`
