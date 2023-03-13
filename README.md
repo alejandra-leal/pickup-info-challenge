@@ -13,8 +13,10 @@
 
 #### Step 2: Start database and load data
 
-The following command will create your mongodb docker image and will parse and process the CSV files' content found in /setup/assets
 `npm run setup`
+
+> To create your mongodb docker image and will parse and process the CSV files' content found in /setup/assets
+
 
 #### Step 3: Set your environment!
 
