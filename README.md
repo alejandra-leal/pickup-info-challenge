@@ -66,7 +66,7 @@ Open the returned graphQL playground link in your browser and start doing querie
       latitude
       longitude
     }
-  }
+    }
 
 #### Tracking Information Response
 
